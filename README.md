@@ -18,6 +18,28 @@ posts happen to be published at the time.
 4. [CHECKLIST.md](CHECKLIST.md) — a pass/fail list to run against a finished
    draft before proposing it as ready.
 
+## Commands
+
+This folder ships one Claude Code slash command,
+[`/blog-topics`](.claude/commands/blog-topics.md), backing a **topic pool** for
+the blog — a holding area for raw material and candidate post angles, so "what
+should I write about?" starts from a curated pool instead of a blank page. It
+picks its mode from what you pass it. (New command files register at session
+start — after a fresh session or `/clear` if it was just added.)
+
+| Command | Mode | What it does |
+|---|---|---|
+| `/blog-topics <paste \| URL \| file>` — or "log this" | **Ingest** | Captures the resource into `topic-pool/resources/` (fetching a URL or reading a file as needed), writes a short summary, and appends candidate post angles to `topic-pool/IDEAS.md`. Drafts nothing. |
+| `/blog-topics` (no args), or `suggest` / `new topics` | **Suggest** | Reads the whole pool and proposes a shortlist of the strongest angles, shaped to `STYLE.md` and de-duped against `IDEAS.md`, then asks which to draft. |
+| `/blog-topics list` | **List** | Prints the pool — resources on file and the open candidate angles — as a compact overview. |
+
+Before generating or judging topics the command reads `STYLE.md` (house voice)
+and `SAFETY.md` (what never gets published, handling others' material), and
+skims `IDEAS.md` so it doesn't repeat an angle. It never drafts a post —
+drafting is always a separate, explicit step. The pool lives in
+[`topic-pool/`](topic-pool/); see its [README](topic-pool/README.md) for the
+layout.
+
 ## Where the actual blog lives
 
 The blog itself is a subdomain of the `pocket-dating-coach` repo, not this
