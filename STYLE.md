@@ -126,6 +126,31 @@ stores*, not *a structurally different approach to prevention*. If a reader
 finishes the summary unable to say what was built, rewrite it, however well the
 three beats are hit.
 
+**Open the summary on a scene, and state the limit directly (added 2026-08-27).**
+A summary was rejected twice in one sitting — first as *"so confusing to read,"*
+then, after a structural fix, as *"sounds so abstract."* Two specific failures,
+both from the LangGraph post's original summary:
+
+- **Machinery described in abstract nouns.** "A one-line merge rule letting both
+  write the same list without a collision" names the feature but shows nothing.
+  What landed instead was a two-sentence scene with named actors and a visible
+  failure: *"Say your pipeline has a threat-scoring agent and a coalition-modelling
+  agent, and both append their findings to the same warnings list… both read the
+  old list, both write their own copy back, and one agent's findings silently
+  vanish."* The Openings rule ("a situation, something happening") applies to the
+  summary too, not just the first paragraph.
+- **A caveat phrased as a negated abstraction.** *"What it does not buy you is a
+  reason to reach for any of this when your pipeline is honestly a straight line"*
+  forces the reader to parse the non-purchase of a reason. State the limit as a
+  direct instruction with a concrete instance of the excluded case: *"If your
+  pipeline is honestly a straight line — fetch, then compute, then summarize —
+  you have nothing to parallelize and nothing to merge; write the for-loop and
+  move on."*
+
+The test: every noun in the summary should be something the reader can picture
+(an agent, a list, a run dying), and every claim should be affirmative — say what
+to do and when, not what something fails to justify.
+
 ## Openings
 
 Open on **a situation, something happening** — a person doing a thing, or an
