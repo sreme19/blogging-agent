@@ -97,6 +97,35 @@ links back to where the rule is explained.
       thing gets built/ingested, and what happens at query time end to end,
       through to generation.
 
+## Editing a published post — cutting one of its examples
+
+Removing a worked example is not a local edit. When the survey-analysis engine
+was cut from the LangGraph post (2026-08-27), it took three sections with it: it
+had been the live example for the validation gate, for checkpointing, and for the
+human-approval pause. The first repair reassigned its checkpointing claim to an
+engine that has no checkpointer, and that claim went live before a full re-read
+caught it.
+
+- [ ] Grep the post for the cut example's **vocabulary**, not just its name —
+      the nouns from its domain outlive the paragraph that introduced them,
+      including inside diagram labels.
+- [ ] For every advantage the cut example was carrying, name the surviving
+      example that demonstrates it. If none does, the claim is deleted or
+      converted to guidance ([STYLE.md](STYLE.md) "Do not confess unbuilt
+      work") — never reattached to a system that lacks the mechanism.
+- [ ] **Verify each reattached claim in the code** before committing: grep the
+      new owner's repo for the mechanism itself, not for its name in a README.
+- [ ] Check diagram captions, `alt` text and `<desc>` — a caption asserting a
+      property of the removed system is the easiest thing to miss, and needs a
+      re-render if the wording changed.
+- [ ] Re-check ordinal cross-references ("the third advantage"), counts in the
+      summary and headings, and any comparison table whose rows just changed.
+- [ ] Re-read the sections that only *mentioned* the cut example for logic that
+      no longer holds — swapping a human in for a pass/warn/fail verdict makes
+      sense; swapping one in for a crash-check does not.
+- [ ] Re-read the whole post start to finish afterwards. Every break above was
+      invisible at the diff level and obvious in a full read.
+
 ## Mechanics ([PUBLISHING.md](PUBLISHING.md))
 
 - [ ] Frontmatter has `title`, `date` (YYYY-MM-DD), `summary`, `tags`,
