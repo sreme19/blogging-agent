@@ -1,3 +1,13 @@
 .DS_Store
 *.swp
 .claude/settings.local.json
+
+# Added with blog-pool — this repo held no code before it.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+build/
+dist/

@@ -1,10 +1,17 @@
 # blogging-agent
 
 Guideline folder for writing and publishing posts to **sree.riteangle.dating**,
-Sree's personal engineering blog. This folder holds no code and is not deployed
-anywhere — it exists so that "write a blog post about X" has a durable, checked
-set of rules to work from instead of re-deriving the house style from whatever
-posts happen to be published at the time.
+Sree's personal engineering blog. Nothing here is deployed anywhere — it exists
+so that "write a blog post about X" has a durable, checked set of rules to work
+from instead of re-deriving the house style from whatever posts happen to be
+published at the time.
+
+It holds one small CLI, `blog-pool`, and deliberately nothing more. That command
+only writes into `topic-pool/`: it exists so a session working in *another* repo
+can log "this is worth a post" while the judgement is fresh, without that session
+also trying to write the post. Every decision that shapes a post — house style,
+what is publishable, which angle earns the effort — still belongs to a session
+rooted here, with STYLE.md and SAFETY.md in front of it.
 
 **Read this before writing any new post for that blog.** In order:
 
@@ -20,7 +27,23 @@ posts happen to be published at the time.
 
 ## Commands
 
-This folder ships one Claude Code slash command,
+```bash
+uv pip install -e ".[dev]"
+
+# from anywhere: log work in another repo as a candidate angle
+blog-pool add --repo agent-ready-data \
+  --angle "Freshness metadata as a first-class column output" \
+  --commits a1b2c3..d4e5f6
+
+blog-pool list
+```
+
+`blog-pool add` records a **pointer, not a payload** — the repo, the commit sha
+and the commit subjects, never a diff or a line of code. The drafting session
+pulls the detail itself later. That keeps the pool small and keeps every
+publishing judgement on the side of the wall that has the guardrails.
+
+This folder also ships one Claude Code slash command,
 [`/blog-topics`](.claude/commands/blog-topics.md), backing a **topic pool** for
 the blog — a holding area for raw material and candidate post angles, so "what
 should I write about?" starts from a curated pool instead of a blank page. It
